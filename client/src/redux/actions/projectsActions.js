@@ -17,7 +17,7 @@ import axios from 'axios';
     //  } = projectData;
       
     //  const project = {title, description, demoLink, githubLink};
-      return axios.post("https://my-portfolio-mern-stack-ldcc2skza-mahmoudalmoukhtar.vercel.app/api/projects/", projectData,{
+      return axios.post("https://my-portfolio-mern-stack-ldcc2skza-mahmoudalmoukhtar.vercel.app/api/projects/", JSON.stringify(projectData),{
       
       headers: {
         //'content-type': 'multipart/form-data',
@@ -26,11 +26,11 @@ import axios from 'axios';
       }
 }).then((res)=>{
       // console.log(res)
-      let formDataObject = Object.fromEntries(projectData.entries());
+      //let formDataObject = Object.fromEntries(projectData.entries());
       return dispatch(
             addProjectAction({   
              id:uuidv4(),
-              ...formDataObject,
+              ...projectData,
             })
           );
 

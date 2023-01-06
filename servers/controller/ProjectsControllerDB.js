@@ -6,7 +6,7 @@ const Project = require('../models/ProjectModelDB');
 
 //add new student to database
 const addNewProject = (req,res,nxt)=>{
-    const {title, description, demoLink, githubLink} = req.body
+    const {title, description, demoLink, githubLink,image} = req.body
     const {file} = req
    console.log(file)
     const newProject = new Project({
@@ -14,7 +14,7 @@ const addNewProject = (req,res,nxt)=>{
         description:description,
         demoLink:demoLink,
         githubLink:githubLink,
-        image:req.file.filename,
+        image:image,
     })
      newProject.save().then(()=>{
         res.status(200).send("add")  

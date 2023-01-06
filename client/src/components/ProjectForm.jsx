@@ -17,19 +17,31 @@ const ProjectForm = ({onSubmit, project}) => {
 
 const handleSubmit = (e)=>{
 e.preventDefault();
-        const formData = new FormData();
+        
+        onSubmit({
+            title,
+            description,
+            demoLink,
+            githubLink,
+            image,
+          });
+        //const formData = new FormData();
         //console.log("fromHandle",image)
-        formData.append('title', title);
-        formData.append('description', description);
-        formData.append('githubLink', githubLink);
-        formData.append('demoLink', demoLink);
-        formData.append('imageProject', image);
+        // formData.append('title', title);
+        // formData.append('description', description);
+        // formData.append('githubLink', githubLink);
+        // formData.append('demoLink', demoLink);
+        // formData.append('imageProject', image);
         //let formDataObject = Object.fromEntries(formData.entries());
-
-  
-        onSubmit(formData);        
+        //onSubmit(formData);        
 }
 
+const handleFileUpload = async (e)=>{
+  const file = e.target.files[0];
+  const base64 = await converToBase64(file)
+  setImage(base64);
+  console.log("from client",base64)
+}
   
   return (
     <form className="flex flex-col gap-4 justify-between items-center text-black" encType='multipart/form-data' onSubmit={handleSubmit}>
@@ -74,11 +86,7 @@ e.preventDefault();
         <input
           type='file'         
           name="imageProjecte"
-          onChange={e =>{
-            //console.log(e.target.files[0])
-            setImage(e.target.files[0])
-          } 
-        }
+          onChange={handleFileUpload}
           
         />
       </label>
@@ -96,6 +104,20 @@ function mapDispatchToProps(dispatch) {
   return {
     addProjectAction: project => dispatch(startAddProjectAction(project)),
   };
+}
+
+
+const converToBase64 = (file)=>{
+return new Promise((resolve, reject)=>{
+  const fileReader = new FileReader()
+  fileReader.readAsDataURL(file);
+  fileReader.onload = ()=>{
+    resolve(fileReader.result)
+  };
+  fileReader.onerror = (error)=>{
+    reject(error)
+  }
+})
 }
 
 export default connect(undefined, mapDispatchToProps)(ProjectForm);
