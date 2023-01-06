@@ -27,8 +27,7 @@
   },
   "scripts": {
     "start-server": "nodemon index",
-    "start-mongodb": "/Users/A/mongodb/bin/mongod --dbpath=/Users/A/mongodb-data",
-    "build": "react-scripts build"
+    "start-mongodb": "/Users/A/mongodb/bin/mongod --dbpath=/Users/A/mongodb-data"
   },
   "browserslist": {
     "production": [
