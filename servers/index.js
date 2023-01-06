@@ -25,7 +25,8 @@ mongoose.connect("mongodb+srv://mahmoudalmoukhtar:R02m8QZ8AB7GqH4v@cluster0.bffs
 app.use(cors());
 app.use(experss.json());
 app.use(experss.urlencoded({extended: true}));
-app.use("/api/images",experss.static('public'));
+//app.use("/api/images",experss.static('public'));
+app.use('/api/images', express.static(path.join(__dirname, './public')))
 //app.use(cookieParser());
 //3red party middle
 helmet({

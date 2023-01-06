@@ -6,7 +6,7 @@ export const registere = (uid, name) => ({
 
 export const startRegistere = (name,email,password) => {
   return async (dispatch) => {
-    const response = await fetch("http://localhost:3001/api/users/", {
+    const response = await fetch("https://my-portfolio-mern-stack-ldcc2skza-mahmoudalmoukhtar.vercel.app/api/users/", {
      method: 'POST', // *GET, POST, PUT, DELETE, etc.
      cache: "no-cache",
      headers: {

@@ -17,7 +17,7 @@ import axios from 'axios';
     //  } = projectData;
       
     //  const project = {title, description, demoLink, githubLink};
-      return axios.post("http://localhost:3001/api/projects/", projectData,{
+      return axios.post("https://my-portfolio-mern-stack-ldcc2skza-mahmoudalmoukhtar.vercel.app/api/projects/", projectData,{
       
       headers: {
         //'content-type': 'multipart/form-data',
@@ -52,7 +52,7 @@ import axios from 'axios';
 
 export const startRemoveProjectAction = (id,uid) => {
   return async dispatch => {
-    return fetch(`http://localhost:3001/api/projects/${id}`, {
+    return fetch(`https://my-portfolio-mern-stack-ldcc2skza-mahmoudalmoukhtar.vercel.app/api/projects/${id}`, {
      method: 'DELETE', // *GET, POST, PUT, DELETE, etc.
      cache: "no-cache",
      headers: {
@@ -81,7 +81,7 @@ export const editProject = (id, updates) => ({
 
 export const startEditProject = (id, updates,uid) => {
   return async dispatch => {
-    const response = await fetch(`http://localhost:3001/api/projects/${id}`, {
+    const response = await fetch(`https://my-portfolio-mern-stack-ldcc2skza-mahmoudalmoukhtar.vercel.app/api/projects/${id}`, {
      method: 'PUT', // *GET, POST, PUT, DELETE, etc.
      cache: "no-cache",
      headers: {
@@ -113,7 +113,7 @@ export const setProjectsAction = projects => ({
 
 export const startSetProjectsAction = () => {
   return dispatch => {
-    return fetch('http://localhost:3001/api/projects')
+    return fetch('https://my-portfolio-mern-stack-ldcc2skza-mahmoudalmoukhtar.vercel.app/api/projects')
     .then((response) => response.json())
     .then((projects)=>{
       //console.log(projects)
