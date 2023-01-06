@@ -1,6 +1,5 @@
 const experss = require("express");
 const path = require("path");
-const cookieParser = require('cookie-parser');
 const helmet = require('helmet');
 const ejs = require('ejs');
 const projectsRouter = require('./routes/Projects')
