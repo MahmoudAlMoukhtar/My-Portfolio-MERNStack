@@ -16,14 +16,14 @@ const {
 
 
 
-const storage = multer.diskStorage({
-    destination: 'public',
-    filename: function (req, file, cb) {
-        return cb(null, file.originalname)
-    }
-});
+// const storage = multer.diskStorage({
+//     destination: 'public',
+//     filename: function (req, file, cb) {
+//         return cb(null, file.originalname)
+//     }
+// });
 
-const upload = multer({ storage: storage })
+// const upload = multer({ storage: storage })
 
 
 
@@ -47,7 +47,7 @@ router.get("/", getAllProjects);
 
 
 //create new Student
-router.post("/",AuthPermissionMW,  upload.single('imageProject'),addNewProject);
+router.post("/",AuthPermissionMW,addNewProject);
 
 
 router.param("id",(req,res,nxt,val)=>{
