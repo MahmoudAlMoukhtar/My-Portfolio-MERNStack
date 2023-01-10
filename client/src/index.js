@@ -8,14 +8,13 @@ import configureStore from "./redux/store/configuerStore";
 import {startSetProjectsAction} from "./redux/actions/projectsActions";
 import {Provider} from "react-redux";
 import ClimbingBoxLoader from "react-spinners/ClimbingBoxLoader";
-import { login, startLogin } from "./redux/actions/auth";
+import {login, startLogin} from "./redux/actions/auth";
 //import "./firebase/firebase";
 // import database, {firebase} from "./firebase/firebase";
 // import {login, logout} from "./redux/actions/auth";
 const store = configureStore();
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-
 
 root.render(
   <React.Fragment>
@@ -24,7 +23,7 @@ root.render(
     </div>
   </React.Fragment>
 );
- store.dispatch(startSetProjectsAction()).then(() => {
+store.dispatch(startSetProjectsAction()).then(() => {
   root.render(
     <BrowserRouter>
       <Provider store={store}>
@@ -32,10 +31,8 @@ root.render(
       </Provider>
     </BrowserRouter>
   );
-  console.log(store.getState());
-}); 
-
-
+  //console.log(store.getState());
+});
 
 // let hasRendered = false;
 // const renderApp = () => {

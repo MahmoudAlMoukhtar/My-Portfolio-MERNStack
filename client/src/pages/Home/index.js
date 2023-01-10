@@ -40,9 +40,9 @@ const HomePage = () => {
               <i className="text-gray-300">
                 "Work for money, program for love!"
               </i>
-              I'm Mahmoud, an Web Developer with experience in creating and
-              development websites, Who is passionate about programming and
-              works with MERN Stack Development
+              I'm Mahmoud, a Web Developer with experience in creating and
+              developing websites, I'm passionate about programming and work
+              with MERN Stack Development
             </p>
           </div>
           <div className="w-60 flex flex-col gap-6">
