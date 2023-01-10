@@ -107,17 +107,17 @@ function mapDispatchToProps(dispatch) {
 }
 
 
-const converToBase64 = (file)=>{
-return new Promise((resolve, reject)=>{
+const converToBase64 = async (file)=>{
+ 
   const fileReader = new FileReader()
   fileReader.readAsDataURL(file);
-  fileReader.onload = ()=>{
-    resolve(fileReader.result)
+   fileReader.onload = ()=>{
+    return fileReader.result
   };
   fileReader.onerror = (error)=>{
-    reject(error)
+   console.log("Error in base64 image")
   }
-})
+
 }
 
 export default connect(undefined, mapDispatchToProps)(ProjectForm);

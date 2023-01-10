@@ -1,7 +1,15 @@
 const ItemProjcets = ({p}) => {
   //console.log("projec",p);
-  const {title, description, category, image,imageProject, demoLink, githubLink} = p;
-  
+  const {
+    title,
+    description,
+    category,
+    image,
+    imageProject,
+    demoLink,
+    githubLink,
+  } = p;
+
   return (
     <div className="flex flex-col justify-center gap-2 w-[300px] sm:w-[400px] shadow-lg p-2 z-40 bg-slate-800  hover:scale-105 transtion duration-200 itemProjects">
       <img src={image} alt="" className="w-[100%] max-h-[200px] itemProjects" />
@@ -15,7 +23,11 @@ const ItemProjcets = ({p}) => {
         >
           Demo
         </a>
-        <a href={githubLink} className=" bg-slate-600 itemProjects" target="_blank">
+        <a
+          href={githubLink}
+          className=" bg-slate-600 itemProjects"
+          target="_blank"
+        >
           Github
         </a>
       </div>

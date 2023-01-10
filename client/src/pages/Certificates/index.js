@@ -8,16 +8,16 @@ const Certificate = ({children, link}) => {
       className="flex gap-2 items-start text-md focus:bg-gray-400 focus:text-black  hover:text-black hover:bg-gray-400 p-2 rounded-lg"
       target="_blank"
     >
-    <div>
-    <TbCertificate size={20}/>
-    </div>
+      <div>
+        <TbCertificate size={20} />
+      </div>
       {children}
     </a>
   );
 };
 const CertificatesPage = () => {
   return (
-    <div className="flex flex-col justify-start items-center gap-8 h-screen w-full">
+    <div className="flex flex-col justify-start items-center gap-8 min-h-screen h-full w-full">
       <h1 className="text-5xl">Certificates</h1>
       <div className="flex flex-col justify-center items-center sm:items-start flex-wrap gap-8 lg:gap-4 sm:flex-row  text-md md:text-xl w-full">
         <div className="w-80">
@@ -88,7 +88,8 @@ const CertificatesPage = () => {
           </li>
           <div className="w-full text-[15px] flex flex-col gap-2">
             <Certificate link="https://www.udemy.com/certificate/UC-898Ode68-f0be-41b6-adf5-b29098985f0f/">
-              The Complete Node.js Course (RESTful Web Services with Node.js, Express, and MongoDB)
+              The Complete Node.js Course (RESTful Web Services with Node.js,
+              Express, and MongoDB)
             </Certificate>
           </div>
         </div>
