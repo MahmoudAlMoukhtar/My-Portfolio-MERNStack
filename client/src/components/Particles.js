@@ -35,7 +35,7 @@ const ParticlesComponent = () => {
           distance: 100,
           enable: true,
           opacity: 0.3,
-          width: 0.5,
+          width: 0.3,
         },
         move: {
           enable: true,
