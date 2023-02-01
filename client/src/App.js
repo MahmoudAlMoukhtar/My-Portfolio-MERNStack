@@ -77,6 +77,9 @@ function App({isAdmin, dispatch}) {
           />
         </Routes>
       </main>
+      <div className="hidden lg:block">
+        <ParticlesComponent />
+      </div>
     </div>
   );
 }

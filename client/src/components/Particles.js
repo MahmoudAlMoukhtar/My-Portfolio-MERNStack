@@ -21,7 +21,7 @@ const ParticlesComponent = () => {
           },
           mdoes: {
             repulse: {
-              distance: 50,
+              distance: 2,
             },
             push: {
               quantity: 10,
@@ -33,8 +33,8 @@ const ParticlesComponent = () => {
         links: {
           color: "#ffffff",
           distance: 100,
-          enable: false,
-          opacity: 0.2,
+          enable: true,
+          opacity: 0.3,
           width: 0.5,
         },
         move: {
@@ -46,6 +46,9 @@ const ParticlesComponent = () => {
         },
         size: {
           value: {min: 1, max: 2},
+        },
+        quantity: {
+          value: 20,
         },
       },
     };
