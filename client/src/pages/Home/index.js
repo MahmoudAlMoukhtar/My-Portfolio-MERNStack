@@ -74,9 +74,9 @@ const HomePage = () => {
         <div id="Image" className="p-6 min-w-[250px]  z-40 drop bg-slate-900">
           <img
             src="/IMG_20220917_142002_553-3.jpg"
-            className="imgDrop min-w-[250px]"
-            width={500}
-            alt=""
+            className="imgDrop min-w-[250px] "
+            width={600}
+            alt="mahmoud"
           />
         </div>
         <div

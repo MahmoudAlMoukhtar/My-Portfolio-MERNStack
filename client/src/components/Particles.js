@@ -24,7 +24,7 @@ const ParticlesComponent = () => {
               distance: 50,
             },
             push: {
-              quantity: 40,
+              quantity: 10,
             },
           },
         },
@@ -42,10 +42,10 @@ const ParticlesComponent = () => {
           speed: {min: 1, max: 3},
         },
         opacity: {
-          value: {min: 0.2, max: 0.7},
+          value: {min: 0.4, max: 0.8},
         },
         size: {
-          value: {min: 1, max: 6},
+          value: {min: 1, max: 2},
         },
       },
     };

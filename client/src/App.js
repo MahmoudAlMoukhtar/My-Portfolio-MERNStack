@@ -14,63 +14,59 @@ import AddProject from "./pages/AddProject";
 import DashboardPage from "./pages/Dashboard";
 import EditPage from "./pages/EditPage";
 import PrivaiteRoute from "./PrivaiteRoute";
-import { useEffect, useState } from "react";
-import { login } from "./redux/actions/auth";
-import { connect } from "react-redux";
+import {useEffect, useState} from "react";
+import {login} from "./redux/actions/auth";
+import {connect} from "react-redux";
 import NavbarModal from "./components/NavbarModal";
 
 function App({isAdmin, dispatch}) {
-  const [userAuth, setUserAuth] = useState(JSON.parse(localStorage.getItem('user')))
-  const [openModalNavbar, setOpenModalNavbar] = useState(false)
-  useEffect(()=>{    
-    if(userAuth){
-      dispatch(login(userAuth.token,userAuth.isAdmin))
+  const [userAuth, setUserAuth] = useState(
+    JSON.parse(localStorage.getItem("user"))
+  );
+  const [openModalNavbar, setOpenModalNavbar] = useState(false);
+  useEffect(() => {
+    if (userAuth) {
+      dispatch(login(userAuth.token, userAuth.isAdmin));
     }
-  },[userAuth])
+  }, [userAuth]);
   return (
     <div className="App bg-slate-900 text-white">
       <main className="flex flex-col gap-8 mx-4">
-        <Navbar setUserAuth={setUserAuth} setOpenModalNavbar={setOpenModalNavbar}/>
-        {openModalNavbar && <NavbarModal setOpenModalNavbar={setOpenModalNavbar}/>}
+        <Navbar
+          setUserAuth={setUserAuth}
+          setOpenModalNavbar={setOpenModalNavbar}
+        />
+        {openModalNavbar && (
+          <NavbarModal setOpenModalNavbar={setOpenModalNavbar} />
+        )}
         <Routes>
-          <Route path="/" element={ <HomePage />} />
-          <Route path="/loggin" element={!userAuth ? <LoginPage /> : <Navigate to="/" />} />
-          <Route path="/registere" element={!userAuth? <RegisterePage /> : <Navigate to="/" />} />
+          <Route path="/" element={<HomePage />} />
+          <Route
+            path="/loggin"
+            element={!userAuth ? <LoginPage /> : <Navigate to="/" />}
+          />
+          <Route
+            path="/registere"
+            element={!userAuth ? <RegisterePage /> : <Navigate to="/" />}
+          />
           <Route path="/portfolio" element={<PortfolioPage />} />
           <Route path="/certificates" element={<CertificatesPage />} />
-          <Route path="/dashboard/AddProject" element={
-            <PrivaiteRoute>
-              <AddProject />
-            </PrivaiteRoute>
-          } />
-          <Route path="/dashboard/edit/:id" element={
-          <PrivaiteRoute>
-          <EditPage />
-          </PrivaiteRoute>
-          } />          
           <Route
-            path="/dashboard"
+            path="/dashboard/AddProject"
             element={
               <PrivaiteRoute>
-              <DashboardPage />
+                <AddProject />
               </PrivaiteRoute>
             }
           />
-          
-        </Routes>
-      </main>
-      <ParticlesComponent />
-    </div>
-  );
-}
-
-
-export default connect() (App);
-
-
-/* 
-
-<Route path="/Login" element={<LoginPage />} />
+          <Route
+            path="/dashboard/edit/:id"
+            element={
+              <PrivaiteRoute>
+                <EditPage />
+              </PrivaiteRoute>
+            }
+          />
           <Route
             path="/dashboard"
             element={
@@ -79,5 +75,10 @@ export default connect() (App);
               </PrivaiteRoute>
             }
           />
-          <Route path="/dashboard/add" element={<AddProject />} />
-*/
+        </Routes>
+      </main>
+    </div>
+  );
+}
+
+export default connect()(App);

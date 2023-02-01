@@ -8,7 +8,7 @@ const PortfolioPage = ({projects, numSlice}) => {
   const projectsAfterSlice = numSlice
     ? projects.reverse().slice(0, numSlice)
     : projects.reverse();
-  if (projects.length === 0 || null || undefined) {
+  if (!projects.length) {
     return (
       <div className="absolute inset-0 mx-[50%] flex items-center justify-cneter">
         <ClimbingBoxLoader />
@@ -35,23 +35,3 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps)(PortfolioPage);
-/*
- */
-
-/* 
-
-<ul className="flex gap-4">
-        <button className="p-2 bg-slate-800 rounded z-40 transition duration-200 hover:scale-105">
-          JavaScript
-        </button>
-        <button className="p-2 bg-slate-800 rounded z-40 transition duration-200 hover:scale-105">
-          React.js
-        </button>
-        <button className="p-2 bg-slate-800 rounded z-40 transition duration-200 hover:scale-105">
-          Node.js
-        </button>
-        <button className="p-2 bg-slate-800 rounded z-40 transition duration-200 hover:scale-105">
-          Firebase
-        </button>
-      </ul>
-*/
