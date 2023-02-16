@@ -96,7 +96,7 @@ const HomePage = () => {
                   my own or with the team
                 </p>
                 <a
-                  href="http://localhost:3001/api/images/Black%20Blue%20Modern%20Professional%20CV%20Resume%20Template.jpg"
+                  href="https://my-portfolio-mern-stack.vercel.app/api/images/Black%20Blue%20Modern%20Professional%20CV%20Resume%20Template.jpg"
                   target="blank"
                   className="flex items-center gap-6 text-[#e2c006] underline text-sm lg:text-md"
                 >
@@ -138,7 +138,7 @@ const HomePage = () => {
               team
             </p>
             <a
-              href="http://localhost:3001/api/images/Black%20Blue%20Modern%20Professional%20CV%20Resume%20Template.jpg"
+              href="https://my-portfolio-mern-stack.vercel.app/api/images/Black%20Blue%20Modern%20Professional%20CV%20Resume%20Template.jpg"
               target="blank"
               className="flex items-center gap-6 text-[#e2c006] underline text-sm lg:text-md"
             >

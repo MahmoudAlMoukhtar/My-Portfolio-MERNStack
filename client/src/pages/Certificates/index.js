@@ -8,7 +8,7 @@ import {Link} from "react-router-dom";
 export const Certificate = ({children, link}) => {
   return (
     <motion.a
-      href={`http://localhost:3001/api/images/${link}`}
+      href={`https://my-portfolio-mern-stack.vercel.app/api/images/${link}`}
       className="flex gap-2 items-start text-md focus:bg-[#e2c006] focus:text-black  hover:text-black hover:bg-[#e2c006] p-2 rounded-lg"
       target="blank"
     >
