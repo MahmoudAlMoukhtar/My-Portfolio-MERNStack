@@ -13,7 +13,7 @@
         },
         {
             "src": "/(.*)",
-            "dest": "pulbic"
+            "dest": "public"
         }
     ]
 }
