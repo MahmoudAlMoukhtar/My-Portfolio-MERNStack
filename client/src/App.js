@@ -1,23 +1,18 @@
+import React, {useEffect, useState} from "react";
 import {Navigate, Route, Routes} from "react-router-dom";
 import Navbar from "./Common/Navbar";
-import ParticlesComponent from "./components/Particles";
-//import DashboardPage from "./pages/Dashboard";
 import HomePage from "./pages/Home";
 import PortfolioPage from "./pages/Portfolio";
-// import PrivaiteRoute from "./PrivaiteRoute";
-// import EditPage from "./pages/EditPage";
-// import AddProject from "./pages/AddProject";
 import LoginPage from "./pages/Login";
 import RegisterePage from "./pages/Registere";
-import CertificatesPage from "./pages/Certificates";
-import AddProject from "./pages/AddProject";
-import DashboardPage from "./pages/Dashboard";
-import EditPage from "./pages/EditPage";
-import PrivaiteRoute from "./PrivaiteRoute";
-import {useEffect, useState} from "react";
+import CertificatesPage, {Certificate} from "./pages/Certificates";
 import {login} from "./redux/actions/auth";
 import {connect} from "react-redux";
 import NavbarModal from "./components/NavbarModal";
+import Footer from "./Common/Footer";
+import ScrollToTop from "./components/ScrollToTop";
+import PrivaiteRoute from "./PrivaiteRoute";
+import {AnimatePresence} from "framer-motion";
 
 function App({isAdmin, dispatch}) {
   const [userAuth, setUserAuth] = useState(
@@ -30,57 +25,36 @@ function App({isAdmin, dispatch}) {
     }
   }, [userAuth]);
   return (
-    <div className="App bg-slate-900 text-white">
-      <main className="flex flex-col gap-8 mx-4">
-        <Navbar
-          setUserAuth={setUserAuth}
-          setOpenModalNavbar={setOpenModalNavbar}
-        />
-        {openModalNavbar && (
-          <NavbarModal setOpenModalNavbar={setOpenModalNavbar} />
-        )}
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route
-            path="/loggin"
-            element={!userAuth ? <LoginPage /> : <Navigate to="/" />}
-          />
-          <Route
-            path="/registere"
-            element={!userAuth ? <RegisterePage /> : <Navigate to="/" />}
-          />
-          <Route path="/portfolio" element={<PortfolioPage />} />
-          <Route path="/certificates" element={<CertificatesPage />} />
-          <Route
-            path="/dashboard/AddProject"
-            element={
-              <PrivaiteRoute>
-                <AddProject />
-              </PrivaiteRoute>
-            }
-          />
-          <Route
-            path="/dashboard/edit/:id"
-            element={
-              <PrivaiteRoute>
-                <EditPage />
-              </PrivaiteRoute>
-            }
-          />
-          <Route
-            path="/dashboard"
-            element={
-              <PrivaiteRoute>
-                <DashboardPage />
-              </PrivaiteRoute>
-            }
-          />
-        </Routes>
-      </main>
-      <div className="hidden lg:block">
-        <ParticlesComponent />
+    <React.Fragment>
+      <ScrollToTop />
+      <div className="App bg-[#1d1d1d] text-white">
+        <main className="flex flex-col gap-8 py-14">
+          <Navbar />
+          {openModalNavbar && (
+            <NavbarModal setOpenModalNavbar={setOpenModalNavbar} />
+          )}
+          <AnimatePresence>
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route
+                path="/loggin"
+                element={!userAuth ? <LoginPage /> : <Navigate to="/" />}
+              />
+              <Route
+                path="/registere"
+                element={!userAuth ? <RegisterePage /> : <Navigate to="/" />}
+              />
+              <Route path="/portfolio" element={<PortfolioPage />} />
+              <Route
+                path="/certificates"
+                element={<CertificatesPage page={true} />}
+              />
+            </Routes>
+          </AnimatePresence>
+          <Footer />
+        </main>
       </div>
-    </div>
+    </React.Fragment>
   );
 }
 

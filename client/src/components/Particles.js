@@ -7,7 +7,7 @@ const ParticlesComponent = () => {
     return {
       fullScreen: {
         enable: true,
-        zIndex: 1,
+        zIndex: 0,
       },
       interactivity: {
         events: {
@@ -32,23 +32,23 @@ const ParticlesComponent = () => {
       particles: {
         links: {
           color: "#ffffff",
-          distance: 100,
+          distance: 40,
           enable: true,
           opacity: 0.3,
           width: 0.3,
         },
         move: {
           enable: true,
-          speed: {min: 1, max: 3},
+          speed: {min: 1, max: 2},
         },
         opacity: {
           value: {min: 0.4, max: 0.8},
         },
         size: {
-          value: {min: 1, max: 2},
+          value: {min: 1, max: 1},
         },
         quantity: {
-          value: 20,
+          value: 30,
         },
       },
     };

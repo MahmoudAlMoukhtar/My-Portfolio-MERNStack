@@ -4,6 +4,7 @@ const projectsRouter = require("./routes/Projects");
 const UsersRouter = require("./routes/Users");
 const AuthRouter = require("./routes/Auth");
 const AdminRouter = require("./routes/Admin");
+const emailsRouter = require("./routes/emails");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const ErrorMW = require("./middlewares/ErrorMW");
@@ -14,8 +15,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
-//app.use("/api/images",express.static('public'));
-//app.use("/api/images", express.static(path.join(__dirname, "./tmp")));
+//app.use("/api/images", express.static(path.join(__dirname, "./public")));
+app.use("/api/images", express.static("public"));
 //app.use(cookieParser());
 //3red party middle
 // helmet({
@@ -26,6 +27,7 @@ app.use("/api/users", UsersRouter);
 app.use("/api/projects", projectsRouter);
 app.use("/api/login", AuthRouter);
 app.use("/api/admin", AdminRouter);
+app.use("/api/sendEmail", emailsRouter);
 app.use(ErrorMW); //express error MW
 
 /*  */

@@ -2,7 +2,8 @@ import axios from "axios";
 
 //const API = axios.create({baseURL: "http://localhost:3001/api"});
 const API = axios.create({
-  baseURL: "https://my-portfolio-mern-stack.vercel.app/api/",
+  baseURL: "http://localhost:3001/api",
+  //baseURL: "https://my-portfolio-mern-stack.vercel.app/api/",
 });
 
 /* API.interceptors.request.use(req => {
@@ -37,3 +38,6 @@ export const deleteProject = (id, uid) =>
 //AUTH Operation
 export const signin = formData => API.post("/user/signin", formData);
 export const signup = formData => API.post("/user/signup", formData);
+
+//email message
+export const sendEmailMessage = formData => API.post("/sendEmail", formData);

@@ -1,10 +1,20 @@
 import ItemProjcets from "../../components/ItemProjcets";
 import {connect} from "react-redux";
 import ClimbingBoxLoader from "react-spinners/ClimbingBoxLoader";
+import {motion} from "framer-motion";
 const PortfolioPage = ({projects, numSlice}) => {
-  //const {data: projectsData} = useFetch("projects");
-  //console.log(projects);
-  //console.log("from projects pafge",projects)
+  const container = {
+    hidden: {opacity: 1, scale: 0},
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        delayChildren: 0.3,
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
   const projectsAfterSlice = numSlice
     ? projects.reverse().slice(0, numSlice)
     : projects.reverse();
@@ -16,15 +26,25 @@ const PortfolioPage = ({projects, numSlice}) => {
     );
   }
   return (
-    <div className="flex flex-col justify-center items-center gap-8 h-[100%]">
+    <motion.div
+      initial={{opacity: 0}}
+      animate={{opacity: 1}}
+      exit={{opacity: 0}}
+      className="flex flex-col justify-center items-center gap-8 h-[100%]"
+    >
       <h1 className="text-4xl">PROJECTS</h1>
 
-      <div className="flex justify-center items-center flex-wrap gap-20">
+      <motion.div
+        variants={container}
+        initial="hidden"
+        animate="visible"
+        className=" flex justify-center items-center flex-wrap gap-20"
+      >
         {projectsAfterSlice.map(p => (
           <ItemProjcets p={p} key={p._id} />
         ))}
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 

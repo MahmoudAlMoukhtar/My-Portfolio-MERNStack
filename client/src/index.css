@@ -8,18 +8,16 @@ body {
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  -moz-osx-font-smoothing: grayscale;  
+  scroll-behavior: smooth !important;
 }
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
 .drop{
-box-shadow: inset 20px 20px 20px rgba(0, 0, 0, 0.05),
-25px 35px 20px rgba(0, 0, 0, 0.05),
-25px 30px 30px rgba(0, 0, 0, 0.05),
-inset -10px -20px 25px rgba(16, 17, 20, 0.9);
 -webkit-border-top-left-radius: 100px;
   -webkit-border-bottom-right-radius: 100px;
   -moz-border-radius-topleft: 100px;
@@ -43,19 +41,17 @@ border-radius: 50%
 }
 .imgDrop:hover{
   border-radius: 50%;
+  
 }
 
 .itemProjects{
-  box-shadow: inset 20px 20px 20px rgba(0, 0, 0, 0.05),
-      25px 35px 20px rgba(0, 0, 0, 0.05),
-      25px 30px 30px rgba(0, 0, 0, 0.05),
-      inset -20px -20px 25px rgba(16, 17, 20, 0.9);
-  border-radius: 45% 55% 31% 69% / 40% 25% 75% 60%;
+  
+  /* border-radius: 45% 55% 31% 69% / 40% 25% 75% 60%; */
   transition: 1s;
 }
 
 .itemProjects:hover {
-  border-radius: 45% 55% 73% 27% / 40% 40% 60% 60%;
+  /* border-radius: 45% 55% 73% 27% / 40% 40% 60% 60%; */
 }
 
 input{
@@ -65,4 +61,54 @@ input{
 
 .SiUpwork{
   font-size: "40px" !important;
+}
+
+
+.popover__wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.popover__content {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  top: -40px;
+  right: calc(50% - 50%);
+  transform: translate(0, 10px);
+  background-color: #e2c006;
+  padding: 2px;
+  box-shadow: 0 2px 5px 0 black;
+  width: 100px;
+  border-radius: 3px;
+  
+}
+
+.popover__content:before {
+  position: absolute;
+  z-index: -1;
+  content: "";
+  right: calc(50% - 10px);
+  bottom: -10px;
+  border-style: solid;
+  border-width: 0 10px 10px 10px;
+  transform: rotate(+180deg);
+  -webkit-transform: rotate(180deg);    
+  border-color: transparent transparent #bfbfbf transparent;
+  transition-duration: 0.3s;
+  transition-property: transform;
+}
+
+.popover__wrapper:hover .popover__content {
+  z-index: 10;
+  opacity: 1;
+  visibility: visible;
+  transform: translate(0, -20px);
+  transition: all 0.5s cubic-bezier(0.75, -0.02, 0.2, 0.97);
+}
+
+.popover__message {
+  font-size: 16px;
+  color: black;
+  text-align: center;
 }

@@ -1,59 +1,119 @@
 import React from "react";
 import {SiPluralsight, SiLinkedin, SiUdemy} from "react-icons/si";
 import {TbCertificate} from "react-icons/tb";
-const Certificate = ({children, link}) => {
+import {AiOutlineArrowRight} from "react-icons/ai";
+import {motion} from "framer-motion";
+import {Link} from "react-router-dom";
+
+export const Certificate = ({children, link}) => {
   return (
-    <a
-      href={link}
-      className="flex gap-2 items-start text-md focus:bg-gray-400 focus:text-black  hover:text-black hover:bg-gray-400 p-2 rounded-lg"
-      target="_blank"
+    <motion.a
+      href={`http://localhost:3001/api/images/${link}`}
+      className="flex gap-2 items-start text-md focus:bg-[#e2c006] focus:text-black  hover:text-black hover:bg-[#e2c006] p-2 rounded-lg"
+      target="blank"
     >
       <div>
         <TbCertificate size={20} />
       </div>
       {children}
-    </a>
+    </motion.a>
   );
 };
-const CertificatesPage = () => {
+const CertificatesPage = ({page}) => {
+  const container = {
+    hidden: {opacity: 1, scale: 0},
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        delayChildren: 0.3,
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
   return (
-    <div className="flex flex-col justify-start items-center gap-8 min-h-screen h-full w-full">
-      <h1 className="text-5xl">Certificates</h1>
-      <div className="flex flex-col justify-center items-center sm:items-start flex-wrap gap-8 lg:gap-4 sm:flex-row  text-md md:text-xl w-full">
-        <div className="w-80">
-          <li className="w-full flex gap-2 items-center justify-between font-bold text-center text-black bg-gray-400 p-2 rounded-lg mb-2">
+    <motion.div
+      initial={{opacity: 0}}
+      animate={{opacity: 1}}
+      exit={{opacity: 0}}
+      className="flex justify-center  flex-wrap md:flex-nowrap items-start gap-8 h-full w-full bg-[#161515] py-40 px-8 md:px-20 xl:px-40"
+    >
+      {!page && (
+        <div className="flex flex-col items-center text-center justify-center md:items-start md:text-start md:justify-start gap-16 ">
+          <div className="flex flex-col gap-2">
+            <h6 className="text-2xl flex items-center gap-2 w-full">
+              - <p className="text-sm text-gray-400">Certificates</p>
+            </h6>
+            <p className="text-3xl w-full">
+              All my certificates in web development
+            </p>
+          </div>
+          <p className="text-xs w-full">
+            Show recently my awards in web design and web development
+          </p>
+          <Link
+            to="/certificates"
+            className="flex items-center gap-6 text-[#e2c006] underline"
+          >
+            Explore more
+            <AiOutlineArrowRight
+              color="#e2c006"
+              className="border-b-[1px] border-[#e2c006]"
+            />
+          </Link>
+        </div>
+      )}
+      <div className="flex flex-col justify-center items-center sm:items-start flex-wrap gap-4 lg:gap-4 sm:flex-row  text-md md:text-xl w-full">
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="visible"
+          className="container w-80"
+        >
+          <li
+            initial={{y: "100px", zIndex: 1000}}
+            whileInView={{y: 0, zIndex: 1000}}
+            transition={{type: "spring", duration: 1, bounce: 0.3}}
+            className="w-full flex gap-2 items-center justify-between font-bold text-center text-black bg-[#e2c006] p-2 rounded mb-2"
+          >
             <SiPluralsight />
             PluralSight
           </li>
           <div className="text-[15px] w-full flex flex-col gap-2">
-            <Certificate link="https://app.pluralsight.com/achievements/share/c2deb8a3-510d-46af-9838-d5a32dcb9d10">
+            <Certificate link="React The Big Picture.png.png">
               React: The Big Picture
             </Certificate>
-            <Certificate link="https://app.pluralsight.com/achievements/share/5c3cfe3a-8ec7-4598-bbaa-33bcd4fd27e3">
+            <Certificate link="React 17 Getting Started.png">
               React 17: Getting Started
             </Certificate>
-            <Certificate link="https://app.pluralsight.com/achievements/share/1b6600f7-24fa-4cc8-8b8b-d71cfdce0398">
+            <Certificate link="Managing React State.jpg">
               Managing React State
             </Certificate>
-            <Certificate link="https://app.pluralsight.com/achievements/share/928245d4-8d80-48ae-a734-97858a20b259">
+            <Certificate link="Designing React 17 Components.jpg">
               Designing React 17 Components
             </Certificate>
-            <Certificate link="https://app.pluralsight.com/achievements/share/56823e99-b501-49db-a984-72a26fbbcab7">
+            <Certificate link="Server Rendering React 16 Components.png">
               Server Rendering React 16 Components
             </Certificate>
-            <Certificate link="https://app.pluralsight.com/achievements/share/4fe30114-b23a-42a7-998d-89a767e91e82">
+            <Certificate link="Git The Big Picture.png">
               Git: The Big Picture
             </Certificate>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="w-80">
-          <li className="w-full flex gap-2 items-center justify-between font-bold text-center text-black bg-gray-400 p-2 rounded-lg mb-2">
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="visible"
+          className="container w-80"
+        >
+          <li className="w-full flex gap-2 items-center justify-between font-bold text-center text-black bg-[#e2c006] p-2 rounded mb-2">
             <SiLinkedin />
             Linkedin learning
           </li>
           <div className="w-full text-[15px] flex flex-col gap-2">
-            <Certificate link="https://www.linkedin.com/learning/programming-foundations-fundamentals-3">
+            <Certificate link="Programming Foundations Fundamentals.png">
               Programming Foundations: Fundamentals
             </Certificate>
             <Certificate link="https://www.linkedin.com/learning/html-essential-training-4">
@@ -66,35 +126,45 @@ const CertificatesPage = () => {
               Succeeding in Web Development
             </Certificate>
           </div>
-        </div>
-        <div className="w-80">
-          <li className="w-full flex gap-2 items-center justify-between font-bold text-center text-black bg-gray-400 p-2 rounded-lg mb-2">
+        </motion.div>
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="visible"
+          className="container w-80"
+        >
+          <li className="w-full flex gap-2 items-center justify-between font-bold text-center text-black bg-[#e2c006] p-2 rounded mb-2">
             <SiUdemy />
             Udemy
           </li>
           <div className="w-full text-[15px] flex flex-col gap-2">
-            <Certificate link="https://www.udemy.com/certificate/UC-898Ode68-f0be-41b6-adf5-b29098985f0f/">
+            <Certificate link="The Modern JavaScript Bootcamp.png">
               The Modern JavaScript Bootcamp
             </Certificate>
-            <Certificate link="https://www.udemy.com/certificate/UC-898Ode68-f0be-41b6-adf5-b29098985f0f/">
+            <Certificate link="The Complete React Developer Course(w Hooks and Redux).jpg">
               The Complete React Developer Course(w/ Hooks and Redux)
             </Certificate>
           </div>
-        </div>
-        <div className="w-80">
-          <li className="w-full flex gap-2 items-center justify-between font-bold text-center text-black bg-gray-400 p-2 rounded-lg mb-2">
+        </motion.div>
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="visible"
+          className="container w-80"
+        >
+          <li className="w-full flex gap-2 items-center justify-between font-bold text-center text-black bg-[#e2c006] p-2 rounded mb-2">
             <SiUdemy />
             Mahara-Tech
           </li>
           <div className="w-full text-[15px] flex flex-col gap-2">
-            <Certificate link="https://www.udemy.com/certificate/UC-898Ode68-f0be-41b6-adf5-b29098985f0f/">
+            <Certificate link="The Complete Node.js Course (RESTful Web Services with Node.js,Express, and MongoDB).png">
               The Complete Node.js Course (RESTful Web Services with Node.js,
               Express, and MongoDB)
             </Certificate>
           </div>
-        </div>
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
