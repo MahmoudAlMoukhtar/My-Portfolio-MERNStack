@@ -15,8 +15,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
-//app.use("/api/images", express.static(path.join(__dirname, "./public")));
-app.use("/api/images", express.static("public"));
+app.use("/api/images", express.static(path.join(__dirname, "./public")));
+//app.use("/api/images", express.static("public"));
 //app.use(cookieParser());
 //3red party middle
 // helmet({
