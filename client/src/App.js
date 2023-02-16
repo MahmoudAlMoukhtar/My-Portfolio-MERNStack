@@ -11,7 +11,6 @@ import {connect} from "react-redux";
 import NavbarModal from "./components/NavbarModal";
 import Footer from "./Common/Footer";
 import ScrollToTop from "./components/ScrollToTop";
-import PrivaiteRoute from "./PrivaiteRoute";
 import {AnimatePresence} from "framer-motion";
 
 function App({isAdmin, dispatch}) {
@@ -23,7 +22,7 @@ function App({isAdmin, dispatch}) {
     if (userAuth) {
       dispatch(login(userAuth.token, userAuth.isAdmin));
     }
-  }, [userAuth]);
+  }, []);
   return (
     <React.Fragment>
       <ScrollToTop />
