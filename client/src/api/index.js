@@ -2,8 +2,8 @@ import axios from "axios";
 
 //const API = axios.create({baseURL: "http://localhost:3001/api"});
 const API = axios.create({
-  baseURL: "http://localhost:3001/api",
-  //baseURL: "https://my-portfolio-mern-stack.vercel.app/api/",
+  baseURL: "https://my-portfolio-mern-stack.vercel.app/api/",
+  //baseURL: "http://localhost:3001/api",
 });
 
 /* API.interceptors.request.use(req => {
