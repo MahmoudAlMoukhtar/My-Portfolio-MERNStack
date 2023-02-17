@@ -33,12 +33,12 @@ const Skill = ({skillName, Icon}) => {
   return (
     <motion.button
       variants={item}
-      className="items popover__wrapper  p-4 bg-[#161515] rounded-md"
+      className="items popover__wrapper p-4 bg-[#161515] rounded-md"
     >
       {Icon}
 
       <div class="popover__content">
-        <p class="popover__message text-xl font-bold">{skillName}</p>
+        <p class="popover__message text-md font-bold">{skillName}</p>
       </div>
     </motion.button>
   );
