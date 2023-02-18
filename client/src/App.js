@@ -26,33 +26,31 @@ function App({isAdmin, dispatch}) {
   return (
     <React.Fragment>
       <ScrollToTop />
-      <div className="App bg-[#1d1d1d] text-white">
-        <main className="flex flex-col gap-8 py-14">
-          <Navbar />
-          {openModalNavbar && (
-            <NavbarModal setOpenModalNavbar={setOpenModalNavbar} />
-          )}
-          <AnimatePresence>
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route
-                path="/loggin"
-                element={!userAuth ? <LoginPage /> : <Navigate to="/" />}
-              />
-              <Route
-                path="/registere"
-                element={!userAuth ? <RegisterePage /> : <Navigate to="/" />}
-              />
-              <Route path="/portfolio" element={<PortfolioPage />} />
-              <Route
-                path="/certificates"
-                element={<CertificatesPage page={true} />}
-              />
-            </Routes>
-          </AnimatePresence>
-          <Footer />
-        </main>
-      </div>
+      <main className="flex flex-col gap-8 bg-[#1d1d1d] text-white w-full py-14">
+        <Navbar />
+        {openModalNavbar && (
+          <NavbarModal setOpenModalNavbar={setOpenModalNavbar} />
+        )}
+        <AnimatePresence>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route
+              path="/loggin"
+              element={!userAuth ? <LoginPage /> : <Navigate to="/" />}
+            />
+            <Route
+              path="/registere"
+              element={!userAuth ? <RegisterePage /> : <Navigate to="/" />}
+            />
+            <Route path="/portfolio" element={<PortfolioPage />} />
+            <Route
+              path="/certificates"
+              element={<CertificatesPage page={true} />}
+            />
+          </Routes>
+        </AnimatePresence>
+        <Footer />
+      </main>
     </React.Fragment>
   );
 }

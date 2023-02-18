@@ -19,7 +19,7 @@ const HomePage = () => {
       initial={{opacity: 0}}
       animate={{opacity: 1}}
       exit={{opacity: 0}}
-      className="flex flex-col  items-center my-20  w-[100%] translate-y-[-70px] "
+      className="flex flex-col  items-center my-20  w-[100%] translate-y-[-70px] w-full"
     >
       <motion.div
         initial={{opacity: 0}}
@@ -45,7 +45,7 @@ const HomePage = () => {
                 right: 50,
                 bottom: 50,
               }}
-              className="font-bold md:text-5xl lg:text-6xl w-[350px] lg:w-[400px] border-[1px]  p-4 shadow-xl shadow-black z-50 cursor-grab"
+              className="font-bold md:text-5xl lg:text-6xl w-[250px] sm:w-[350px] lg:w-[400px] border-[1px]  p-4 shadow-xl shadow-black z-50 cursor-grab"
             >
               Mahmoud Al Mokhtar
               <span className="text-[60px] font-bold">.</span>
@@ -112,7 +112,7 @@ const HomePage = () => {
 
           <img
             src="/IMG_20220917_141958_063.png"
-            className="min-w-full z-40  translate-x-[-330px] translate-y-[0px] sm:translate-y-[-220px]"
+            className="min-w-full z-40  sm:translate-x-[-330px] translate-x-[-250px] translate-y-[-100px] sm:translate-y-[-220px]"
             alt="mahmoud"
           />
         </div>
@@ -152,12 +152,12 @@ const HomePage = () => {
         </motion.div>
       </motion.div>
       <FeachersSection />
-      <AboutMe />
+
       <PortfolioSection />
       <CertificatesPage />
       <Contact />
     </motion.div>
   );
 };
-
+/* <AboutMe /> */
 export default HomePage;

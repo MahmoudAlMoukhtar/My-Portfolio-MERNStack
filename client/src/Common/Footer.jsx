@@ -7,7 +7,7 @@ const Footer = () => {
       <a href="/#">
         <BiHomeSmile size={40} color={"#e2c006"} className="cursor-pointer" />
       </a>
-      <p className="text-xs w-[400px] border-[1px]  p-4 shadow-xl shadow-black z-[80]">
+      <p className="text-xs w-[300px] md:w-[400px] border-[1px]  p-4 shadow-xl shadow-black z-[80]">
         <span className="font-semibold">Thanks for scrolling. </span>thats all
         folks
       </p>

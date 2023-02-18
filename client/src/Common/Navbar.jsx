@@ -1,23 +1,15 @@
 import {Link, NavLink} from "react-router-dom";
-import {AiFillLinkedin, AiFillGithub, AiFillFacebook} from "react-icons/ai";
-import {HiMenuAlt3} from "react-icons/hi";
 import {connect} from "react-redux";
 import {startLogout} from "../redux/actions/auth";
 import {BiHomeSmile} from "react-icons/bi";
 import {motion} from "framer-motion";
-const Navbar = ({
-  isAuth,
-  isAdmin,
-  startLogout,
-  setUserAuth,
-  setOpenModalNavbar,
-}) => {
+const Navbar = () => {
   return (
     <motion.header
       initial={{y: "-100px", zIndex: 1000}}
       whileInView={{y: 0, zIndex: 1000}}
       transition={{type: "spring", duration: 1, bounce: 0.3}}
-      className="flex  w-[100%] py-4  flex-row justify-between sm:gap-0 px-8 md:px-20 xl:px-40"
+      className="flex flex-col items-center gap-4 sm:gap-0 sm:flex-row sm:items-center justify-between px-8 md:px-20 xl:px-40 py-4 w-full"
     >
       <BiHomeSmile size={40} color={"#e2c006"} className="cursor-pointer" />
       <nav className="flex items-center gap-8">
