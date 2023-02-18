@@ -53,7 +53,7 @@ const PortfolioSection = () => {
           />
         </Link>
       </motion.div>
-      <a href="https://abaia-ecomerce-frontend.vercel.app/" target="blank">
+      <a href="https://e-commer-mernstack-front.vercel.app/" target="blank">
         <motion.div variants={item} className="item">
           <img
             alt="project"
