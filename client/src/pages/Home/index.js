@@ -152,12 +152,12 @@ const HomePage = () => {
         </motion.div>
       </motion.div>
       <FeachersSection />
-
+      <AboutMe />
       <PortfolioSection />
       <CertificatesPage />
       <Contact />
     </motion.div>
   );
 };
-/* <AboutMe /> */
+/*  */
 export default HomePage;

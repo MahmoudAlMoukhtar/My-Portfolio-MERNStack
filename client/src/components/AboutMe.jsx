@@ -59,7 +59,7 @@ const AboutMe = () => {
 
   return (
     <div className="flex flex-col gap-10 px-8 md:px-20 xl:px-40 py-10 mb-40">
-      <motion.section className="flex sm:flex-wrap lg:flex-nowrap  justify-center xl:items-start items-center gap-10 w-full">
+      <motion.section className="flex flex-wrap lg:flex-nowrap  justify-center xl:items-start items-center gap-10 w-full">
         <img
           src="/Untitled-1فثسف.jpg"
           className="w-full rounded max-w-[450px]"
